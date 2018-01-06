@@ -1,0 +1,14 @@
+
+
+#32 bit system
+gcc -c -ggdb -fno-builtin -nostdlib -fno-stack-protector test.c
+
+ld -static -e mini_crt_entry entry.o test.o minicrt.a -o test
+
+
+
+#64 bit system
+gcc -m32 -c -ggdb -fno-builtin -nostdlib -fno-stack-protector test.c
+
+ld -m elf_i386 -static -e mini_crt_entry entry.o test.o minicrt.a -o test
+
